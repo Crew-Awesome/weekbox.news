@@ -7,7 +7,7 @@ To add a post:
 
 1. Copy `templates/post.json` and `templates/body.md` into
    `content/news/posts/<slug>/`.
-2. Use a short, lowercase, kebab-case slug, such as `weekbox-2-4-3`.
+2. Use a short, lowercase, slug, such as `weekbox-2-4-3`.
 3. Set the title, excerpt, and cover path in `post.json`.
 4. Write the article in `body.md`.
 5. Add an entry for the slug to `content/news/index.json`.
@@ -36,9 +36,4 @@ An index entry looks like this:
 }
 ```
 
-The available tags are `Release`, `Mod of the Week`, and `Development`.
-
-Use `./assets/cover.webp` for the cover path in `post.json`. Put inline images
-in the same `assets/` folder and link them from `body.md` as
-`./assets/01.png`, `./assets/02.png`, and so on. A future `publishedAt` date
-keeps a post hidden until that date.
+The available tags are `Release`, `Mod of the Week`, and `Development` but you can add more if theres a new section, but it has to be continued and NOT dropped.
