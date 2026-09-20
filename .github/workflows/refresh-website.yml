@@ -1,0 +1,23 @@
+name: Refresh website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/news/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify-site:
+    runs-on: ubuntu-latest
+    env:
+      SITE_REPO_TOKEN: ${{ secrets.SITE_REPO_TOKEN }}
+    steps:
+      - name: Trigger website rebuild
+        if: ${{ env.SITE_REPO_TOKEN != '' }}
+        env:
+          GH_TOKEN: ${{ env.SITE_REPO_TOKEN }}
+        run: gh api --method POST repos/Crew-Awesome/weekbox.site/dispatches -f event_type=news-updated
